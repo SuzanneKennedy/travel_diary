@@ -1,9 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="content-grid">
+<% @reviews.each do |review| %>
+<%= link_to review_path(review) do %>
+<div class = "content-block">
+  <div class="content-image"><%=image_tag review.picture.url (:medium) %></div>
+  <div class="content-title"><%= review.title %></div>
+</div>
+<%end%>
+<% end %>
+</div>
 
-<h1 class="page-title"><%= @review.title %></h1>
-<div class="page-image"><%= image_tag review.picture.url(:medium) %></div>
 
-<div class="review-body"><%=@review.body %></div>
 
-<%= link_to 'Edit', edit_city_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>
